@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "ICI",
+    "ITI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "R": "minecraft:repeater",
+    "C": "minecraft:comparator",
+    "T": "minecraft:redstone_torch"
+  },
+  "result": {
+    "id": "letter_signal_phone:phone"
+  }
+}

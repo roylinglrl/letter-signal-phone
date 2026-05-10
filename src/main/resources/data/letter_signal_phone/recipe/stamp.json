@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:red_dye",
+    "minecraft:paper"
+  ],
+  "result": {
+    "id": "letter_signal_phone:stamp",
+    "count": 3
+  }
+}

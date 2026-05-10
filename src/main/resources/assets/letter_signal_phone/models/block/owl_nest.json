@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "minecraft:block/spruce_log_top",
+    "front": "letter_signal_phone:block/owl_nest_front",
+    "side": "minecraft:block/spruce_log"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "letter_signal_phone:block/owl_nest"
+    },
+    "facing=east": {
+      "model": "letter_signal_phone:block/owl_nest",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "letter_signal_phone:block/owl_nest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "letter_signal_phone:block/owl_nest",
+      "y": 270
+    }
+  }
+}

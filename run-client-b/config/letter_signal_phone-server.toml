@@ -1,0 +1,5 @@
+[voice]
+	#UDP port used by Letter,Signal,Phone voice calls. The server firewall must allow this UDP port.
+	# Default: 24455
+	# Range: 1 ~ 65535
+	udpPort = 24455

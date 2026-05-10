@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "S": "minecraft:string",
+    "P": "minecraft:paper"
+  },
+  "result": {
+    "id": "letter_signal_phone:packing_box"
+  }
+}

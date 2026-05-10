@@ -1,0 +1,74 @@
+{
+  "name_key": "stamp_pack.letter_signal_phone.default",
+  "item_model": "letter_signal_phone:stamp_pack",
+  "stamps_per_pack": 3,
+  "guaranteed_rare_opens": 100,
+  "rarities": [
+    {
+      "rarity": "rare",
+      "foil_effect": "holographic_stripes",
+      "chance": 0.002
+    },
+    {
+      "rarity": "high_rare",
+      "foil_effect": "color_crystal",
+      "chance": 0.0015
+    },
+    {
+      "rarity": "rgb_rare",
+      "foil_effect": "rgb_shift",
+      "chance": 0.001
+    },
+    {
+      "rarity": "unique_rare",
+      "foil_effect": "diamond",
+      "chance": 0.0005
+    }
+  ],
+  "stamps": [
+    {
+      "id": "letter_signal_phone:default",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:bee_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:crafting_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:creeper_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:diamond_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:enderman_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:grass_block_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:pig_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:sakura_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:skeleton_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:wolf_stamp",
+      "weight": 1
+    }
+  ]
+}

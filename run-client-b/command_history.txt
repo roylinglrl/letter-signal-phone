@@ -1,0 +1,5 @@
+/give PlayerB linkedsoulspact:blank_phone_card
+/give PlayerB linkedsoulspact:card_writer
+/give PlayerB linkedsoulspact:phone
+/tp PlayerA
+/give PlayerB linkedsoulspact:blank_phone_card

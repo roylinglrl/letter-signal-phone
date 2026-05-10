@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "letter_signal_phone:block/card_writer_front",
+    "south": "letter_signal_phone:block/card_writer_side",
+    "east": "letter_signal_phone:block/card_writer_side",
+    "west": "letter_signal_phone:block/card_writer_side",
+    "up": "letter_signal_phone:block/card_writer_topdown",
+    "down": "letter_signal_phone:block/card_writer_topdown",
+    "particle": "letter_signal_phone:block/card_writer_side"
+  }
+}

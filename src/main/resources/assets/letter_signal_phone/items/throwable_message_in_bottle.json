@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "letter_signal_phone:item/throwable_message_in_bottle"
+  }
+}

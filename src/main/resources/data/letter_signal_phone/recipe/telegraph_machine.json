@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CSC",
+    "RPR",
+    "III"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "S": "minecraft:string",
+    "R": "minecraft:redstone",
+    "P": "minecraft:paper",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "letter_signal_phone:telegraph_machine"
+  }
+}

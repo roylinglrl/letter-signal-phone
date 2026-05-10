@@ -1,0 +1,8 @@
+{
+  "default_ring": {
+    "subtitle": "subtitles.letter_signal_phone.default_ring",
+    "sounds": [
+      "letter_signal_phone:default_ring"
+    ]
+  }
+}

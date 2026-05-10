@@ -1,0 +1,5 @@
+{
+  "name_key": "stamp.letter_signal_phone.default",
+  "item_model": "letter_signal_phone:stamp",
+  "gui_texture": "letter_signal_phone:textures/stamp/stamp.png"
+}

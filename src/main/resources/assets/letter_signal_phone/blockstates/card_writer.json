@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "letter_signal_phone:block/card_writer"
+    },
+    "facing=east": {
+      "model": "letter_signal_phone:block/card_writer",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "letter_signal_phone:block/card_writer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "letter_signal_phone:block/card_writer",
+      "y": 270
+    }
+  }
+}
