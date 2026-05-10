@@ -34,6 +34,16 @@ public class LetterScreen extends AbstractContainerScreen<LetterMenu> {
     private static final int TITLE_WIDTH = 63;
     private static final int STAMP_X = 44;
     private static final int STAMP_Y = 27;
+    private static final int READ_STAMP_X = 15;
+    private static final int READ_STAMP_Y = 16;
+    private static final int READ_STAMP_SIZE = 32;
+    private static final int READ_SIGNER_X = 55;
+    private static final int READ_SIGNER_Y = 25;
+    private static final int READ_SIGNER_WIDTH = 65;
+    private static final int READ_TEXT_X = 13;
+    private static final int READ_TEXT_Y = 54;
+    private static final int READ_TEXT_WIDTH = 168;
+    private static final int READ_TEXT_HEIGHT = 133;
     private static final int SAVE_X = 13;
     private static final int SAVE_Y = 50;
     private static final int SEAL_X = 13;
@@ -200,23 +210,24 @@ public class LetterScreen extends AbstractContainerScreen<LetterMenu> {
     private void drawReadOnlyLetter(GuiGraphicsExtractor gui) {
         drawStamp(gui);
         drawSigner(gui);
-        int y = topPos + 36;
-        for (String line : wrap(text, 168)) {
-            if (y > topPos + 154) {
+        int y = topPos + READ_TEXT_Y;
+        int maxY = topPos + READ_TEXT_Y + READ_TEXT_HEIGHT - font.lineHeight;
+        for (String line : wrap(text, READ_TEXT_WIDTH)) {
+            if (y > maxY) {
                 break;
             }
-            gui.text(font, Component.literal(line), leftPos + 4, y, 0xFFFFFFFF, false);
+            gui.text(font, Component.literal(line), leftPos + READ_TEXT_X, y, 0xFFFFFFFF, false);
             y += 9;
         }
     }
 
     private void drawStamp(GuiGraphicsExtractor gui) {
         if (stamp.isEmpty()) {
-            drawCenteredText(gui, Component.translatable("screen.letter_signal_phone.letter.no_stamp"), leftPos + 17, topPos + 13, 0xFFFFFFFF);
+            drawCenteredText(gui, Component.translatable("screen.letter_signal_phone.letter.no_stamp"), leftPos + READ_STAMP_X + READ_STAMP_SIZE / 2, topPos + READ_STAMP_Y + 11, 0xFFFFFFFF);
             return;
         }
-        gui.blit(RenderPipelines.GUI_TEXTURED, stampTexture(), leftPos + 1, topPos + 1, 0, 0, 32, 32, 32, 32);
-        ClientStampTooltipComponent.drawFoil(gui, leftPos + 1, topPos + 1, 32, stampFoilEffect);
+        gui.blit(RenderPipelines.GUI_TEXTURED, stampTexture(), leftPos + READ_STAMP_X, topPos + READ_STAMP_Y, 0, 0, READ_STAMP_SIZE, READ_STAMP_SIZE, READ_STAMP_SIZE, READ_STAMP_SIZE);
+        ClientStampTooltipComponent.drawFoil(gui, leftPos + READ_STAMP_X, topPos + READ_STAMP_Y, READ_STAMP_SIZE, stampFoilEffect);
     }
 
     private Identifier stampTexture() {
@@ -232,8 +243,8 @@ public class LetterScreen extends AbstractContainerScreen<LetterMenu> {
 
     private void drawSigner(GuiGraphicsExtractor gui) {
         //drawSignerHead(gui, leftPos + 38, topPos + 9);
-        Component name = signer.isEmpty() ? Component.empty() : Component.literal(signer);
-        gui.text(font, name, leftPos + 58, topPos + 11, 0xFFFFFFFF, false);
+        Component name = signer.isEmpty() ? Component.empty() : Component.literal(font.plainSubstrByWidth(signer, READ_SIGNER_WIDTH));
+        gui.text(font, name, leftPos + READ_SIGNER_X, topPos + READ_SIGNER_Y, 0xFFFFFFFF, false);
     }
 /* 娓叉煋鐜╁澶村儚锛岀洰鍓嶄技涔庢湁浜涢棶棰樹笉鐢熸晥銆?
     private void drawSignerHead(GuiGraphicsExtractor gui, int x, int y) {

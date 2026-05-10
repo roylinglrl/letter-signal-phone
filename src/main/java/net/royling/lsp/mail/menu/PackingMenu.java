@@ -19,6 +19,11 @@ import java.util.List;
 public class PackingMenu extends AbstractContainerMenu {
     private static final int INPUT_SLOTS = 4;
     private static final int PLAYER_INV_START = INPUT_SLOTS;
+    private static final int INPUT_SLOT_X = 79;
+    private static final int INPUT_SLOT_Y = 47;
+    private static final int INPUT_SLOT_SPACING = 18;
+    private static final int PLAYER_INVENTORY_X = 17;
+    private static final int PLAYER_INVENTORY_Y = 130;
     private final SimpleContainer container;
     private final ServerPlayer serverPlayer;
     private final InteractionHand hand;
@@ -37,11 +42,11 @@ public class PackingMenu extends AbstractContainerMenu {
         this.serverPlayer = serverPlayer;
         this.hand = hand;
         for (int i = 0; i < INPUT_SLOTS; i++) {
-            int x = 26 + (i % 2) * 18;
-            int y = 20 + (i / 2) * 18;
+            int x = INPUT_SLOT_X + (i % 2) * INPUT_SLOT_SPACING;
+            int y = INPUT_SLOT_Y + (i / 2) * INPUT_SLOT_SPACING;
             addSlot(new FilteredSlot(container, i, x, y, stack -> !stack.is(ModItems.PACKAGE.get()) && !stack.is(ModItems.PACKING_BOX.get()), 64));
         }
-        addStandardInventorySlots(inventory, 8, 84);
+        addStandardInventorySlots(inventory, PLAYER_INVENTORY_X, PLAYER_INVENTORY_Y);
     }
 
     public void pack() {

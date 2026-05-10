@@ -13,20 +13,27 @@ import net.royling.lsp.mail.network.MailPayloads;
 
 public class PackingScreen extends AbstractContainerScreen<PackingMenu> {
     private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(LetterSignalPhone.MODID, "textures/gui/packing.png");
-    private static final int BUTTON_X = 73;
-    private static final int BUTTON_Y = 28;
-    private static final int BUTTON_WIDTH = 31;
-    private static final int BUTTON_HEIGHT = 16;
+    private static final int BUTTON_X = 84;
+    private static final int BUTTON_Y = 96;
+    private static final int BUTTON_WIDTH = 24;
+    private static final int BUTTON_HEIGHT = 7;
+    private static final int BUTTON_PRESSED_U = 196;
+    private static final int BUTTON_PRESSED_V = 1;
+    private static final long PRESS_FEEDBACK_MS = 120L;
+    private long packPressedUntil;
 
     public PackingScreen(PackingMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title, 176, 172);
-        inventoryLabelY = 78;
+        super(menu, inventory, title, 194, 209);
+        inventoryLabelY = 119;
     }
 
     @Override
     public void extractRenderState(GuiGraphicsExtractor gui, int mouseX, int mouseY, float partialTick) {
         gui.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         super.extractRenderState(gui, mouseX, mouseY, partialTick);
+        if (System.currentTimeMillis() < packPressedUntil) {
+            gui.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, leftPos + BUTTON_X, topPos + BUTTON_Y, BUTTON_PRESSED_U, BUTTON_PRESSED_V, BUTTON_WIDTH, BUTTON_HEIGHT, 256, 256);
+        }
     }
 
     @Override
@@ -38,6 +45,7 @@ public class PackingScreen extends AbstractContainerScreen<PackingMenu> {
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
         if (inside((int) event.x(), (int) event.y(), leftPos + BUTTON_X, topPos + BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT)) {
+            packPressedUntil = System.currentTimeMillis() + PRESS_FEEDBACK_MS;
             ClientPacketDistributor.sendToServer(new MailPayloads.PackPayload());
             return true;
         }
