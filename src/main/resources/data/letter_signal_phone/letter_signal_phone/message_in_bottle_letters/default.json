@@ -1,16 +1,680 @@
 {
   "letters": [
     {
-      "text": "The tide carried this farther than I ever walked. If you found it, please remember the sea for me.",
-      "signer": "A Stranger"
+      "text": "I used to be an adventurer like you, until I took an arrow to the knee.",
+      "signer": "卫兵甲"
     },
     {
-      "text": "I left before sunrise and forgot to say goodbye. Some part of me is still waving from the shore.",
-      "signer": "Noah"
+      "text": "ためらえば、敗れる",
+      "signer": "苇名一心"
     },
     {
-      "text": "A bottle is a poor mailbox, but the ocean has never lost patience.",
-      "signer": "Mira"
+      "text": "胜败乃兵家常事，大侠请重新来过。",
+      "signer": "大侠"
+    },
+    {
+      "text": "The cake is a lie.",
+      "signer": "鸡"
+    },
+    {
+      "text": "Zombies ate your brains!",
+      "signer": "疯狂的戴夫！"
+    },
+    {
+      "text": "When I'm gone, they'll just find another monster.",
+      "signer": "约翰·马斯顿"
+    },
+    {
+      "text": "野生の漂流瓶が現れた！",
+      "signer": "皮卡丘"
+    },
+    {
+      "text": "告诉俺娘，俺不是孬种！",
+      "signer": "无名氏"
+    },
+    {
+      "text": "后方是这样的，前线的将士只要全身心投入到战场中，听命行事，奋力杀敌就可以，可是后方人员要考虑的事情就很多了。",
+      "signer": "秧秧"
+    },
+    {
+      "text": "敵将、討ち取ったり！",
+      "signer": "夏侯惇"
+    },
+    {
+      "text": "开局一把刀，装备全靠爆！是兄弟就来砍我、屠龙宝刀，点击就送！装备回收，交易自由！",
+      "signer": "渣渣辉"
+    },
+    {
+      "text": "开局一把刀，装备全靠爆！是兄弟就来砍我、屠龙宝刀，点击就送！装备回收，交易自由！",
+      "signer": "渣渣辉"
+    },
+    {
+      "text": "犯大吴疆土者，盛必击而破之！",
+      "signer": "界徐盛"
+    },
+    {
+      "text": "犯大吴疆土者，盛必击而破之！",
+      "signer": "界徐盛"
+    },
+    {
+      "text": "评测评测，无戏我包！三岁筑垣，莫我承流。包之流行，满坑满谷。帝国帝国，莫我分壤。\n评测评测，无玩我图！三岁筑楼，莫我得名。包之流行，满坑满沟。帝国帝国，莫我留孳。\n评测评测，无玩我作！三岁筑城，莫我得金。包之流行，满坑满壑。帝国帝国，鬻之八品。",
+      "signer": "《诗经·评测》"
+    },
+    {
+      "text": "无名小卒还是扬名天下.",
+      "signer": "？？？"
+    },
+    {
+      "text": "人が殺されたら、死ぬ。",
+      "signer": "卫宫士郎"
+    },
+    {
+      "text": "May the Force be with you.",
+      "signer": "欧比旺·克诺比"
+    },
+    {
+      "text": "War, war never changes.",
+      "signer": "旁白"
+    },
+    {
+      "text": "For Azeroth!",
+      "signer": "联盟勇士"
+    },
+    {
+      "text": "Welcome to the new world.",
+      "signer": "G-Man"
+    },
+    {
+      "text": "Hey, you. You're finally awake.",
+      "signer": "拉罗夫"
+    },
+    {
+      "text": "Praise the Sun!",
+      "signer": "索拉尔"
+    },
+    {
+      "text": "男は死ぬまで少年だ。",
+      "signer": "热血少年"
+    },
+    {
+      "text": "今天，也是充满希望的一天。",
+      "signer": "猎空"
+    },
+    {
+      "text": "不要回答！不要回答！不要回答！",
+      "signer": "叶文洁"
+    },
+    {
+      "text": "前进！不择手段地前进！",
+      "signer": "阿尔萨斯"
+    },
+    {
+      "text": "这就是最后一课。",
+      "signer": "姬子"
+    },
+    {
+      "text": "You Died.",
+      "signer": "宫崎英高"
+    },
+    {
+      "text": "Wake the fuck up, Samurai. We have a city to burn.",
+      "signer": "强尼·银手"
+    },
+    {
+      "text": "The cake is a lie.",
+      "signer": "道格·拉特曼"
+    },
+    {
+      "text": "愿风指引你的道路。",
+      "signer": "温迪"
+    },
+    {
+      "text": "以普遍理性而言，这确实如此。",
+      "signer": "钟离"
+    },
+    {
+      "text": "我将，点燃大海！",
+      "signer": "三月七"
+    },
+    {
+      "text": "欢迎回家，指挥官。",
+      "signer": "战术人形"
+    },
+    {
+      "text": "Do not go gentle into that good night.",
+      "signer": "托马斯"
+    },
+    {
+      "text": "La Liberté guidant le peuple.",
+      "signer": "德拉克洛瓦"
+    },
+    {
+      "text": "天不生夫子，万古如长夜。",
+      "signer": "朱熹"
+    },
+    {
+      "text": "王侯将相，宁有种乎！",
+      "signer": "陈胜"
+    },
+    {
+      "text": "赳赳老秦，共赴国难。",
+      "signer": "秦军"
+    },
+    {
+      "text": "风萧萧兮易水寒，壮士一去兮不复还。",
+      "signer": "荆轲"
+    },
+    {
+      "text": "天下大势，分久必合，合久必分。",
+      "signer": "罗贯中"
+    },
+    {
+      "text": "俺也一样！",
+      "signer": "张飞"
+    },
+    {
+      "text": "宁教我负天下人，休教天下人负我。",
+      "signer": "曹操"
+    },
+    {
+      "text": "此间乐，不思蜀。",
+      "signer": "刘禅"
+    },
+    {
+      "text": "我从未见过如此厚颜无耻之人！",
+      "signer": "诸葛亮"
+    },
+    {
+      "text": "To be, or not to be, that is the question.",
+      "signer": "哈姆雷特"
+    },
+    {
+      "text": "With great power comes great responsibility.",
+      "signer": "本叔叔"
+    },
+    {
+      "text": "Winter is coming.",
+      "signer": "史塔克家族"
+    },
+    {
+      "text": "敬酒不吃吃罚酒。",
+      "signer": "反派甲"
+    },
+    {
+      "text": "限りなく神に近い",
+      "signer": "蓝染惣右介"
+    },
+    {
+      "text": "君の指先が躍る電光は、この人生不変の信仰",
+      "signer": "上条当麻"
+    },
+    {
+      "text": "止まるんじゃねぇぞ！",
+      "signer": "奥尔加·伊兹卡"
+    },
+    {
+      "text": "没有人比我更懂战争。",
+      "signer": "某将军"
+    },
+    {
+      "text": "Times have changed.",
+      "signer": "普莱斯"
+    },
+    {
+      "text": "Remember, no Russian.",
+      "signer": "马卡洛夫"
+    },
+    {
+      "text": "私は海賊王になる男だ！",
+      "signer": "蒙奇·D·路飞"
+    },
+    {
+      "text": "真実はいつも一つ！",
+      "signer": "江户川柯南"
+    },
+    {
+      "text": "芸術は爆発だ！",
+      "signer": "迪达拉"
+    },
+    {
+      "text": "悪いのは俺じゃない、この世界だ。",
+      "signer": "金木研"
+    },
+    {
+      "text": "Hope is a good thing, maybe the best of things.",
+      "signer": "安迪"
+    },
+    {
+      "text": "人間の賛歌は勇気の賛歌だ！",
+      "signer": "威廉·齐贝林"
+    },
+    {
+      "text": "オラオラオラオラ！",
+      "signer": "空条承太郎"
+    },
+    {
+      "text": "木の葉が舞うところに、火は必ず燃えている。",
+      "signer": "三代火影"
+    },
+    {
+      "text": "Somebody has to win, why not me?",
+      "signer": "电竞选手"
+    },
+    {
+      "text": "世界属于三体！",
+      "signer": "ETO"
+    },
+    {
+      "text": "给岁月以文明，而不是给文明以岁月。",
+      "signer": "大低谷纪念碑"
+    },
+    {
+      "text": "我超，原！",
+      "signer": "旅行者"
+    },
+    {
+      "text": "愿此行，终抵群星。",
+      "signer": "姬子"
+    },
+    {
+      "text": "Humanity, glory eternal.",
+      "signer": "帝皇"
+    },
+    {
+      "text": "Flesh is weak, machine ascends.",
+      "signer": "机械神教"
+    },
+    {
+      "text": "May the Light be with you.",
+      "signer": "乌瑟尔"
+    },
+    {
+      "text": "Lok'tar Ogar！",
+      "signer": "兽人"
+    },
+    {
+      "text": "There are no permanent friends, only permanent interests.",
+      "signer": "丘吉尔"
+    },
+    {
+      "text": "Knowledge is power.",
+      "signer": "培根"
+    },
+    {
+      "text": "Cogito, ergo sum.",
+      "signer": "笛卡尔"
+    },
+    {
+      "text": "Do not go gentle into that good night.",
+      "signer": "狄兰·托马斯"
+    },
+    {
+      "text": "道路千万条，安全第一条。",
+      "signer": "刘启"
+    },
+    {
+      "text": "生死看淡，不服就干！",
+      "signer": "社会大哥"
+    },
+    {
+      "text": "能力不足的时候，才会觉得运气重要。",
+      "signer": "某强者"
+    },
+    {
+      "text": "The world needs more heroes.",
+      "signer": "士兵76"
+    },
+    {
+      "text": "It's high noon.",
+      "signer": "麦克雷"
+    },
+    {
+      "text": "Heroes never die.",
+      "signer": "天使"
+    },
+    {
+      "text": "Welcome to Summoner's Rift.",
+      "signer": "系统女声"
+    },
+    {
+      "text": "First Blood！",
+      "signer": "播报员"
+    },
+    {
+      "text": "团战可以输，提莫必须死。",
+      "signer": "召唤师"
+    },
+    {
+      "text": "不是哥们，你来真的？",
+      "signer": "路人甲"
+    },
+    {
+      "text": "我不到啊！",
+      "signer": "孙笑川"
+    },
+    {
+      "text": "You don't even call me Godfather.",
+      "signer": "维托·柯里昂"
+    },
+    {
+      "text": "愿你在尘世获得幸福。",
+      "signer": "《飞鸟集》"
+    },
+    {
+      "text": "不要回答！不要回答！不要回答！",
+      "signer": "叶文洁"
+    },
+    {
+      "text": "弱小和无知不是生存的障碍，傲慢才是。",
+      "signer": "刘慈欣"
+    },
+    {
+      "text": "藏好自己，做好清理。",
+      "signer": "清道夫"
+    },
+    {
+      "text": "I bloom like a flower in the dawn of slaughter.",
+      "signer": "烬"
+    },
+    {
+      "text": "Death is like the wind, always by my side.",
+      "signer": "亚索"
+    },
+    {
+      "text": "A long journey, only a sword as companion.",
+      "signer": "亚索"
+    },
+    {
+      "text": "Witness the power of the Shadow Isles!",
+      "signer": "锤石"
+    },
+    {
+      "text": "啊对对对。",
+      "signer": "互联网用户"
+    },
+    {
+      "text": "逃げるんだよ！",
+      "signer": "乔瑟夫·乔斯达"
+    },
+    {
+      "text": "Who's next?",
+      "signer": "金克丝"
+    },
+    {
+      "text": "火力覆盖范围之内，皆为真理。",
+      "signer": "重炮手"
+    },
+    {
+      "text": "Товарищи, ура!",
+      "signer": "红军战士"
+    },
+    {
+      "text": "For the Horde!",
+      "signer": "萨尔"
+    },
+    {
+      "text": "你所热爱的，就是你的生活。",
+      "signer": "《后浪》"
+    },
+    {
+      "text": "人的一切痛苦，本质上都是对自己无能的愤怒。",
+      "signer": "王小波"
+    },
+    {
+      "text": "愿你出走半生，归来仍是少年。",
+      "signer": "作家"
+    },
+    {
+      "text": "我命由我不由天！",
+      "signer": "哪吒"
+    },
+    {
+      "text": "今日无事，勾栏听曲。",
+      "signer": "老大爷"
+    },
+    {
+      "text": "大胆妖孽，我一眼就看出你不是人！",
+      "signer": "法海"
+    },
+    {
+      "text": "Have you ever seen Los Angeles at 4 AM?",
+      "signer": "科比"
+    },
+    {
+      "text": "如果奇迹有颜色，那一定是中国红。",
+      "signer": "观众"
+    },
+    {
+      "text": "Alle Geschenke des Schicksals sind schon im Voraus bezahlt.",
+      "signer": "茨威格"
+    },
+    {
+      "text": "风浪越大，鱼越贵。",
+      "signer": "老渔民"
+    },
+    {
+      "text": "他们朝我扔泥巴，我拿泥巴种荷花。",
+      "signer": "乐观的人"
+    },
+    {
+      "text": "活下去，像牲口一样活下去。",
+      "signer": "福贵"
+    },
+    {
+      "text": "再微小的光，也是光。",
+      "signer": "无名者"
+    },
+    {
+      "text": "Il n'y a qu'un seul héroïsme : voir le monde tel qu'il est et l'aimer.",
+      "signer": "罗曼·罗兰"
+    },
+    {
+      "text": "你醒啦？手术很成功。",
+      "signer": "医生"
+    },
+    {
+      "text": "醒醒，今天要去上学。",
+      "signer": "妈妈"
+    },
+    {
+      "text": "止まるんじゃねぇぞ！",
+      "signer": "奥尔加·伊兹卡"
+    },
+    {
+      "text": "此生无悔入东方，来世愿生幻想乡。",
+      "signer": "东方众"
+    },
+    {
+      "text": "幻想乡，不存在于任何地方。",
+      "signer": "博丽灵梦"
+    },
+    {
+      "text": "Everyone dies.",
+      "signer": "瑟曦"
+    },
+    {
+      "text": "Tu as trahi la révolution!",
+      "signer": "罗伯斯庇尔"
+    },
+    {
+      "text": "革命尚未成功，同志仍需努力。",
+      "signer": "孙中山"
+    },
+    {
+      "text": "为人民服务。",
+      "signer": "伟人"
+    },
+    {
+      "text": "星星之火，可以燎原。",
+      "signer": "伟人"
+    },
+    {
+      "text": "Don't forget why you started when you've gone too far.",
+      "signer": "纪伯伦"
+    },
+    {
+      "text": "我们无法一起学习。",
+      "signer": "鲁迅"
+    },
+    {
+      "text": "The game has begun.",
+      "signer": "Jigsaw"
+    },
+    {
+      "text": "Fear the Old Blood.",
+      "signer": "威廉大师"
+    },
+    {
+      "text": "Tonight, Gehrman joins the hunt.",
+      "signer": "格曼"
+    },
+    {
+      "text": "Ah, hunter, may you find your worth in the waking world.",
+      "signer": "人偶小姐"
+    },
+    {
+      "text": "Praise the Sun!",
+      "signer": "太阳骑士索拉尔"
+    },
+    {
+      "text": "别西卜在看着你。",
+      "signer": "旁白"
+    },
+    {
+      "text": "世界，遗忘我。",
+      "signer": "流浪者"
+    },
+    {
+      "text": "听凭风引。",
+      "signer": "温迪"
+    },
+    {
+      "text": "为了岩王帝君！",
+      "signer": "璃月居民"
+    },
+    {
+      "text": "旅行者，当你重新踏上旅途之后，一定要记得旅途本身的意义。",
+      "signer": "钟离"
+    },
+    {
+      "text": "向着星辰与深渊，欢迎来到冒险家协会。",
+      "signer": "凯瑟琳"
+    },
+    {
+      "text": "舰长，休伯利安号准备就绪。",
+      "signer": "爱酱"
+    },
+    {
+      "text": "这一击，贯穿星辰！",
+      "signer": "景元"
+    },
+    {
+      "text": "愿此身，化作流星。",
+      "signer": "流萤"
+    },
+    {
+      "text": "人在做，天在看。",
+      "signer": "老祖宗"
+    },
+    {
+      "text": "你说得对，但是《崩坏：星穹铁道》是由米哈游自主研发的一款全新银河冒险策略游戏。",
+      "signer": "开拓者"
+    },
+    {
+      "text": "你甚至带着愚蠢的面具。",
+      "signer": "审判者"
+    },
+    {
+      "text": "心臓を捧げよ！",
+      "signer": "调查兵团"
+    },
+    {
+      "text": "戦え！",
+      "signer": "艾伦·耶格尔"
+    },
+    {
+      "text": "自由だ...",
+      "signer": "艾伦·耶格尔"
+    },
+    {
+      "text": "Life is not fair.",
+      "signer": "约翰·马斯顿"
+    },
+    {
+      "text": "Trust me.",
+      "signer": "BT-7274"
+    },
+    {
+      "text": "Protocol 3: Protect the Pilot.",
+      "signer": "BT-7274"
+    },
+    {
+      "text": "Rip and Tear, until it is done.",
+      "signer": "毁灭战士"
+    },
+    {
+      "text": "The right man in the wrong place can make all the difference in the world.",
+      "signer": "G-Man"
+    },
+    {
+      "text": "Would you kindly?",
+      "signer": "阿特拉斯"
+    },
+    {
+      "text": "A man chooses, a slave obeys.",
+      "signer": "安德鲁·莱恩"
+    },
+    {
+      "text": "計画通り。",
+      "signer": "夜神月"
+    },
+    {
+      "text": "真正的英雄，总是敢于直面惨淡的人生。",
+      "signer": "鲁迅"
+    },
+    {
+      "text": "我已经在研究你的战术了。",
+      "signer": "对手"
+    },
+    {
+      "text": "I am back from hell.",
+      "signer": "但丁"
+    },
+    {
+      "text": "Devils may cry.",
+      "signer": "但丁"
+    },
+    {
+      "text": "Jackpot!",
+      "signer": "但丁"
+    },
+    {
+      "text": "风灵月影，宗师之力。",
+      "signer": "玩家"
+    },
+    {
+      "text": "没有BUG，只有特性。",
+      "signer": "程序员"
+    },
+    {
+      "text": "404 NOT FOUND.",
+      "signer": "服务器"
+    },
+    {
+      "text": "连接超时，请重试。",
+      "signer": "运营商"
+    },
+    {
+      "text": "服务器正在维护，请稍后再试。",
+      "signer": "公告"
+    },
+    {
+      "text": "Welcome to Night City.",
+      "signer": "出租车司机"
+    },
+    {
+      "text": "Never Fade Away.",
+      "signer": "强尼·银手"
     }
   ]
 }

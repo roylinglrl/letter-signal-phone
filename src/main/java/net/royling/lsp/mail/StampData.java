@@ -1,5 +1,6 @@
 package net.royling.lsp.mail;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -43,7 +44,7 @@ public final class StampData {
             tag.putString(RARITY, RARITY_COMMON);
             tag.putString(FOIL_EFFECT, FOIL_NONE);
         });
-        stack.set(DataComponents.CUSTOM_NAME, variant.name().copy().withStyle(style -> style.withItalic(false)));
+        applyNameStyle(stack);
         stack.set(DataComponents.ITEM_MODEL, variant.itemModel());
         return stack;
     }
@@ -77,6 +78,7 @@ public final class StampData {
             tag.putString(RARITY, rarity);
             tag.putString(FOIL_EFFECT, foilEffect);
         });
+        applyNameStyle(stack);
     }
 
     public static void setPackOrigin(ItemStack stack, String playerName, int useCount) {
@@ -118,5 +120,25 @@ public final class StampData {
 
     private static CompoundTag tag(ItemStack stack) {
         return stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+    }
+
+    private static void applyNameStyle(ItemStack stack) {
+        ChatFormatting color = rarityColor(rarity(stack));
+        Component name = Component.translatable(name(stack));
+        if (color == null) {
+            stack.set(DataComponents.CUSTOM_NAME, name.copy().withStyle(style -> style.withItalic(false)));
+            return;
+        }
+        stack.set(DataComponents.CUSTOM_NAME, name.copy().withStyle(style -> style.withItalic(false).withColor(color)));
+    }
+
+    private static ChatFormatting rarityColor(String rarity) {
+        return switch (rarity) {
+            case RARITY_RARE -> ChatFormatting.AQUA;
+            case RARITY_HIGH_RARE -> ChatFormatting.LIGHT_PURPLE;
+            case RARITY_UNIQUE_RARE -> ChatFormatting.GOLD;
+            case RARITY_RGB_RARE -> ChatFormatting.RED;
+            default -> null;
+        };
     }
 }

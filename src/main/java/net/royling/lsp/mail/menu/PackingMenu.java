@@ -21,7 +21,7 @@ public class PackingMenu extends AbstractContainerMenu {
     private static final int PLAYER_INV_START = INPUT_SLOTS;
     private static final int INPUT_SLOT_X = 79;
     private static final int INPUT_SLOT_Y = 47;
-    private static final int INPUT_SLOT_SPACING = 18;
+    private static final int INPUT_SLOT_SPACING = 20;
     private static final int PLAYER_INVENTORY_X = 17;
     private static final int PLAYER_INVENTORY_Y = 130;
     private final SimpleContainer container;

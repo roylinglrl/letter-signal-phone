@@ -2,8 +2,6 @@ package net.royling.lsp.mail;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.royling.lsp.mail.item.MessageInBottleItem;
 import org.jetbrains.annotations.Nullable;
 
 public class MessageInBottleBlock extends Block {
@@ -74,24 +73,6 @@ public class MessageInBottleBlock extends Block {
     }
 
     private static InteractionResult openBottle(Level level, BlockPos pos, Player player) {
-        if (!player.isShiftKeyDown()) {
-            return InteractionResult.PASS;
-        }
-        if (level.isClientSide()) {
-            return InteractionResult.SUCCESS;
-        }
-        if (player instanceof ServerPlayer serverPlayer) {
-            ItemStack letter = MessageInBottleLetterPool.INSTANCE.randomLetter(serverPlayer);
-            if (letter.isEmpty()) {
-                serverPlayer.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.empty"), true);
-                return InteractionResult.SUCCESS_SERVER;
-            }
-            level.destroyBlock(pos, false, serverPlayer);
-            if (!serverPlayer.addItem(letter)) {
-                serverPlayer.drop(letter, false);
-            }
-            serverPlayer.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.opened"), true);
-        }
-        return InteractionResult.SUCCESS_SERVER;
+        return MessageInBottleItem.openPlacedBottle(level, pos, player);
     }
 }

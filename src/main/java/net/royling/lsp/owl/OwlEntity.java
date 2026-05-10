@@ -47,7 +47,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.royling.lsp.registry.ModBlocks;
 import net.royling.lsp.registry.ModEntityTypes;
 
 import javax.annotation.Nullable;
@@ -57,8 +56,6 @@ public class OwlEntity extends Animal {
     private static final EntityDataAccessor<Boolean> SLEEPING = SynchedEntityData.defineId(OwlEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> SLEEP_POSE = SynchedEntityData.defineId(OwlEntity.class, EntityDataSerializers.INT);
     private static final int DAY = 24000;
-    private static final int NEST_SEARCH_TICKS = 200;
-    private static final int LOST_NEST_LIMIT = DAY * 3;
     private static final int HURT_FLEE_TICKS = 20 * 20;
 
     @Nullable
@@ -71,7 +68,6 @@ public class OwlEntity extends Animal {
     private Vec3 fleeFrom;
     private int ticksWithoutNest;
     private int ticksSinceHatched;
-    private int nextNestSearch;
     private int hurtFleeTicks;
     private float sleepYaw;
 
@@ -94,7 +90,6 @@ public class OwlEntity extends Animal {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Cat.class, 10.0F, 1.2D, 1.45D));
         goalSelector.addGoal(2, new OwlFollowMeatGoal(this));
-        goalSelector.addGoal(3, new OwlReturnToNestGoal(this));
         goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.15D, true));
         goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.35F));
         goalSelector.addGoal(6, new FollowParentGoal(this, 1.1D));
@@ -150,21 +145,9 @@ public class OwlEntity extends Animal {
         preferLowFlight();
 
         boolean day = isDaytime(level());
-        if (nestPos == null || !isValidNest(nestPos)) {
-            ticksWithoutNest++;
-            if (--nextNestSearch <= 0) {
-                nextNestSearch = NEST_SEARCH_TICKS + random.nextInt(NEST_SEARCH_TICKS);
-                findOrCreateNest(serverLevel);
-            }
-            handleUnboundDayRest(serverLevel, day);
-        } else {
-            ticksWithoutNest = 0;
-            treeSleepPos = null;
-            setSleeping(false);
-            if (day && canEnterNest()) {
-                enterNest(serverLevel);
-            }
-        }
+        nestPos = null;
+        ticksWithoutNest = 0;
+        handleUnboundDayRest(serverLevel, day);
         if (isSleepingOwl()) {
             getNavigation().stop();
             setTarget(null);
@@ -221,15 +204,6 @@ public class OwlEntity extends Animal {
             return;
         }
 
-        BlockPos nearbyNest = findAvailableNest(level, 24, 12);
-        if (nearbyNest != null) {
-            treeSleepPos = null;
-            groundSleepPos = null;
-            bindNest(nearbyNest);
-            setSleeping(false);
-            return;
-        }
-
         if (treeSleepPos == null || !isValidTreeSleepPos(level, treeSleepPos) || distanceToSqr(Vec3.atCenterOf(treeSleepPos)) > 1024.0D) {
             treeSleepPos = findTreeSleepPos(level);
         }
@@ -277,62 +251,6 @@ public class OwlEntity extends Animal {
             nestPos = null;
             ticksWithoutNest = 0;
         }
-    }
-
-    private boolean canEnterNest() {
-        return nestPos != null && distanceToSqr(Vec3.atCenterOf(nestPos)) < 9.0D;
-    }
-
-    private void enterNest(ServerLevel level) {
-        if (nestPos == null || !(level.getBlockEntity(nestPos) instanceof OwlNestBlockEntity nest)) {
-            return;
-        }
-        if (nest.storeOwl(this)) {
-            discard();
-        }
-    }
-
-    private void findOrCreateNest(ServerLevel level) {
-        BlockPos nearest = findAvailableNest(level, 24, 12);
-        if (nearest != null) {
-            bindNest(nearest);
-            if (level.getBlockEntity(nearest) instanceof OwlNestBlockEntity nest) {
-                nest.bindNearbyOwl(this);
-            }
-            return;
-        }
-
-        if (ticksWithoutNest >= LOST_NEST_LIMIT) {
-            createNestFromSpruce(level);
-        }
-    }
-
-    private void createNestFromSpruce(ServerLevel level) {
-        BlockPos.betweenClosedStream(blockPosition().offset(-12, -6, -12), blockPosition().offset(12, 8, 12))
-                .filter(pos -> level.getBlockState(pos).is(Blocks.SPRUCE_LOG) || level.getBlockState(pos).is(Blocks.STRIPPED_SPRUCE_LOG))
-                .min(Comparator.comparingDouble(pos -> pos.distSqr(blockPosition())))
-                .ifPresent(pos -> {
-                    BlockState state = ModBlocks.OWL_NEST.get().defaultBlockState();
-                    level.setBlock(pos, state, 3);
-                    if (level.getBlockEntity(pos) instanceof OwlNestBlockEntity nest) {
-                        nest.bindNearbyOwl(this);
-                    }
-                    bindNest(pos.immutable());
-                    ticksWithoutNest = 0;
-                });
-    }
-
-    @Nullable
-    private BlockPos findAvailableNest(ServerLevel level, int horizontal, int vertical) {
-        AABB area = getBoundingBox().inflate(horizontal, vertical, horizontal);
-        return BlockPos.betweenClosedStream(
-                        (int) area.minX, (int) area.minY, (int) area.minZ,
-                        (int) area.maxX, (int) area.maxY, (int) area.maxZ)
-                .filter(pos -> level.getBlockState(pos).is(ModBlocks.OWL_NEST.get()))
-                .filter(pos -> level.getBlockEntity(pos) instanceof OwlNestBlockEntity nest && nest.canBindAdult())
-                .min(Comparator.comparingDouble(pos -> pos.distSqr(blockPosition())))
-                .map(BlockPos::immutable)
-                .orElse(null);
     }
 
     @Nullable
@@ -415,10 +333,6 @@ public class OwlEntity extends Animal {
     private boolean isTreeBlock(Level level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         return state.is(BlockTags.LEAVES) || state.is(BlockTags.LOGS) || state.is(Blocks.SNOW) && level.getBlockState(pos.below()).is(BlockTags.LEAVES);
-    }
-
-    private boolean isValidNest(BlockPos pos) {
-        return level().getBlockEntity(pos) instanceof OwlNestBlockEntity;
     }
 
     private void repelPhantoms() {

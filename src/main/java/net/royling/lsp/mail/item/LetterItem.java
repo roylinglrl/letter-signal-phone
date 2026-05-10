@@ -1,6 +1,7 @@
 package net.royling.lsp.mail.item;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.InteractionHand;
@@ -12,7 +13,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.royling.lsp.mail.LetterData;
-import net.royling.lsp.mail.MailItemCodec;
+import net.royling.lsp.mail.StampData;
+import net.royling.lsp.mail.StampVariantManager;
 import net.royling.lsp.mail.menu.LetterMenu;
 import net.royling.lsp.mail.network.MailPayloads;
 
@@ -57,10 +59,36 @@ public class LetterItem extends Item {
     }
 
     private static void giveReturnedStamp(Player player, ItemStack letter) {
-        String stampId = LetterData.getStamp(letter);
-        ItemStack stamp = new MailItemCodec.PackedStack(stampId, 1).toStack();
+        ItemStack stamp = returnedStamp(letter);
         if (!stamp.isEmpty() && !player.addItem(stamp)) {
             player.drop(stamp, false);
+        }
+    }
+
+    private static ItemStack returnedStamp(ItemStack letter) {
+        Identifier variant = returnedStampVariant(letter);
+        ItemStack stamp = StampData.stackFor(StampVariantManager.INSTANCE.byId(variant));
+        StampData.setRarityAndFoil(stamp, LetterData.getStampRarity(letter), LetterData.getStampFoilEffect(letter));
+        return stamp;
+    }
+
+    private static Identifier returnedStampVariant(ItemStack letter) {
+        String variant = LetterData.getStampVariant(letter);
+        if (!variant.isEmpty()) {
+            return parseVariantOrDefault(variant);
+        }
+        String legacyStamp = LetterData.getStamp(letter);
+        if (!legacyStamp.isEmpty() && !legacyStamp.equals(StampData.DEFAULT_VARIANT.getNamespace() + ":stamp")) {
+            return parseVariantOrDefault(legacyStamp);
+        }
+        return StampData.DEFAULT_VARIANT;
+    }
+
+    private static Identifier parseVariantOrDefault(String value) {
+        try {
+            return Identifier.parse(value);
+        } catch (Exception ignored) {
+            return StampData.DEFAULT_VARIANT;
         }
     }
 }

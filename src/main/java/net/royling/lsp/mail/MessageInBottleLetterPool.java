@@ -23,6 +23,7 @@ import java.util.Map;
 public final class MessageInBottleLetterPool implements ResourceManagerReloadListener {
     public static final MessageInBottleLetterPool INSTANCE = new MessageInBottleLetterPool();
     private static final String PATH = LetterSignalPhone.MODID + "/message_in_bottle_letters";
+    private static final float RARE_STAMP_CHANCE = 0.005F;
     private List<BottleLetter> letters = defaultLetters();
 
     private MessageInBottleLetterPool() {
@@ -41,8 +42,21 @@ public final class MessageInBottleLetterPool implements ResourceManagerReloadLis
         StampVariant stamp = variants.isEmpty()
                 ? StampVariantManager.INSTANCE.byId(StampData.DEFAULT_VARIANT)
                 : variants.get(random.nextInt(variants.size()));
+        StampPackDefinition.RarityEntry rarity = random.nextFloat() < RARE_STAMP_CHANCE
+                ? StampPackManager.INSTANCE.guaranteedRarity(StampPackManager.INSTANCE.byId(StampPackData.DEFAULT_PACK), random)
+                : null;
         ItemStack stack = new ItemStack(ModItems.LETTER.get());
-        LetterData.seal(stack, letter.text(), stamp.id().toString(), stamp.id().toString(), stamp.guiTexture().toString(), letter.signer(), "");
+        LetterData.seal(
+                stack,
+                letter.text(),
+                stamp.id().toString(),
+                stamp.id().toString(),
+                stamp.guiTexture().toString(),
+                rarity == null ? StampData.RARITY_COMMON : rarity.rarity(),
+                rarity == null ? StampData.FOIL_NONE : rarity.foilEffect(),
+                letter.signer(),
+                ""
+        );
         return stack;
     }
 

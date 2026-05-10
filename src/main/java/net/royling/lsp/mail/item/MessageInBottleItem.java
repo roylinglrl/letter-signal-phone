@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
@@ -32,24 +33,54 @@ public class MessageInBottleItem extends BlockItem {
         if (!player.isShiftKeyDown()) {
             return super.use(level, player, hand);
         }
+        return openBottleStack(level, player, hand);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Player player = context.getPlayer();
+        if (player == null || !player.isShiftKeyDown()) {
+            return super.useOn(context);
+        }
+        return openBottleStack(context.getLevel(), player, context.getHand());
+    }
+
+    public static InteractionResult openPlacedBottle(Level level, BlockPos pos, Player player) {
+        if (!player.isShiftKeyDown()) {
+            return InteractionResult.PASS;
+        }
+        if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
+        }
+        if (player instanceof ServerPlayer serverPlayer) {
+            openBottle(serverPlayer, () -> level.destroyBlock(pos, false, serverPlayer));
+        }
+        return InteractionResult.SUCCESS_SERVER;
+    }
+
+    private static InteractionResult openBottleStack(Level level, Player player, InteractionHand hand) {
         if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }
         if (player instanceof ServerPlayer serverPlayer) {
             ItemStack bottle = player.getItemInHand(hand);
-            ItemStack letter = MessageInBottleLetterPool.INSTANCE.randomLetter(serverPlayer);
-            if (letter.isEmpty()) {
-                serverPlayer.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.empty"), true);
-                return InteractionResult.SUCCESS_SERVER;
-            }
-            bottle.shrink(1);
-            if (!serverPlayer.addItem(letter)) {
-                serverPlayer.drop(letter, false);
-            }
-            giveTreasureMapIfLucky(serverPlayer);
-            serverPlayer.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.opened"), true);
+            openBottle(serverPlayer, () -> bottle.shrink(1));
         }
         return InteractionResult.SUCCESS_SERVER;
+    }
+
+    private static void openBottle(ServerPlayer player, Runnable consumeBottle) {
+        ItemStack letter = MessageInBottleLetterPool.INSTANCE.randomLetter(player);
+        if (letter.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.empty"), true);
+            return;
+        }
+        consumeBottle.run();
+        if (!player.addItem(letter)) {
+            player.drop(letter, false);
+        }
+        giveTreasureMapIfLucky(player);
+        player.sendSystemMessage(Component.translatable("message.letter_signal_phone.message_in_bottle.opened"), true);
     }
 
     private static void giveTreasureMapIfLucky(ServerPlayer player) {
