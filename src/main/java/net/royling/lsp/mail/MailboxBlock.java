@@ -32,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 public class MailboxBlock extends Block {
     public static final BooleanProperty HAS_MAIL = BooleanProperty.create("has_mail");
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
-    private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
+    private static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 16.0D, 14.0D, 16.0D);
 
     public MailboxBlock(Properties properties) {
         super(properties);

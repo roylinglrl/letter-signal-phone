@@ -53,3 +53,4 @@ entity_model和resources文件夹保持All Rights Reserved协议。
 手机的操作应该比较简单  
 ![alt text](image-4.png)  
 从左到右分别是 接听，拨号，挂断。
+

@@ -1,6 +1,25 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "letter_signal_phone:item/skeleton_stamp"
-  }
+﻿{
+    "model":  {
+                  "type":  "letter_signal_phone:stamp_foil",
+                  "base":  {
+                               "type":  "minecraft:model",
+                               "model":  "letter_signal_phone:item/skeleton_stamp"
+                           },
+                  "rare":  {
+                               "type":  "minecraft:model",
+                               "model":  "letter_signal_phone:item/stamp_foil_rare"
+                           },
+                  "high_rare":  {
+                                    "type":  "minecraft:model",
+                                    "model":  "letter_signal_phone:item/stamp_foil_high_rare"
+                                },
+                  "unique_rare":  {
+                                      "type":  "minecraft:model",
+                                      "model":  "letter_signal_phone:item/stamp_foil_unique_rare"
+                                  },
+                  "rgb_rare":  {
+                                   "type":  "minecraft:model",
+                                   "model":  "letter_signal_phone:item/stamp_foil_rgb_rare"
+                               }
+              }
 }

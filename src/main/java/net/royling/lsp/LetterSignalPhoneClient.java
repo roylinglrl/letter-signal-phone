@@ -10,6 +10,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.neoforged.neoforge.client.event.RegisterItemModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -17,10 +18,12 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.royling.lsp.mail.client.ClientStampTooltipComponent;
 import net.royling.lsp.mail.client.MailClientHooks;
 import net.royling.lsp.mail.client.MailboxNoticeParticle;
+import net.royling.lsp.mail.client.StampFoilItemModel;
 import net.royling.lsp.mail.menu.LetterScreen;
 import net.royling.lsp.mail.menu.MailboxScreen;
 import net.royling.lsp.mail.menu.PackageScreen;
 import net.royling.lsp.mail.menu.PackingScreen;
+import net.royling.lsp.mail.menu.StampAlbumScreen;
 import net.royling.lsp.mail.tooltip.StampTooltipComponent;
 import net.royling.lsp.entity_model.baby_owl;
 import net.royling.lsp.entity_model.owl;
@@ -54,7 +57,13 @@ public class LetterSignalPhoneClient {
         event.register(ModMenus.LETTER.get(), LetterScreen::new);
         event.register(ModMenus.PACKING.get(), PackingScreen::new);
         event.register(ModMenus.PACKAGE.get(), PackageScreen::new);
+        event.register(ModMenus.STAMP_ALBUM.get(), StampAlbumScreen::new);
         event.register(ModMenus.TELEGRAPH.get(), TelegraphScreen::new);
+    }
+
+    @SubscribeEvent
+    static void registerItemModels(RegisterItemModelsEvent event) {
+        event.register(StampFoilItemModel.TYPE, StampFoilItemModel.Unbaked.MAP_CODEC);
     }
 
     @SubscribeEvent

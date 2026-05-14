@@ -22,6 +22,7 @@ import net.royling.lsp.mail.menu.LetterMenu;
 import net.royling.lsp.mail.menu.MailboxMenu;
 import net.royling.lsp.mail.menu.PackageMenu;
 import net.royling.lsp.mail.menu.PackingMenu;
+import net.royling.lsp.mail.menu.StampAlbumMenu;
 import net.royling.lsp.registry.ModItems;
 
 public final class MailPayloads {
@@ -46,6 +47,7 @@ public final class MailPayloads {
         registrar.playToServer(LetterSealPayload.TYPE, LetterSealPayload.STREAM_CODEC, MailPayloads::handleLetterSeal);
         registrar.playToServer(PackPayload.TYPE, PackPayload.STREAM_CODEC, MailPayloads::handlePack);
         registrar.playToServer(UnpackPayload.TYPE, UnpackPayload.STREAM_CODEC, MailPayloads::handleUnpack);
+        registrar.playToServer(StampAlbumPagePayload.TYPE, StampAlbumPagePayload.STREAM_CODEC, MailPayloads::handleStampAlbumPage);
     }
 
     private static void handleMailboxSend(MailboxSendPayload payload, IPayloadContext context) {
@@ -145,6 +147,14 @@ public final class MailPayloads {
         context.enqueueWork(() -> {
             if (context.player() instanceof ServerPlayer player && player.containerMenu instanceof PackageMenu menu) {
                 menu.unpack();
+            }
+        });
+    }
+
+    private static void handleStampAlbumPage(StampAlbumPagePayload payload, IPayloadContext context) {
+        context.enqueueWork(() -> {
+            if (context.player() instanceof ServerPlayer player && player.containerMenu instanceof StampAlbumMenu menu) {
+                menu.setPage(payload.page());
             }
         });
     }
@@ -317,6 +327,19 @@ public final class MailPayloads {
                 (buf, payload) -> {
                 },
                 buf -> new UnpackPayload()
+        );
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    public record StampAlbumPagePayload(int page) implements CustomPacketPayload {
+        public static final Type<StampAlbumPagePayload> TYPE = new Type<>(id("stamp_album_page"));
+        public static final StreamCodec<RegistryFriendlyByteBuf, StampAlbumPagePayload> STREAM_CODEC = StreamCodec.of(
+                (buf, payload) -> buf.writeVarInt(payload.page()),
+                buf -> new StampAlbumPagePayload(buf.readVarInt())
         );
 
         @Override

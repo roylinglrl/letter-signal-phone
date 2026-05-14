@@ -10,6 +10,7 @@ import net.royling.lsp.mail.menu.LetterMenu;
 import net.royling.lsp.mail.menu.MailboxMenu;
 import net.royling.lsp.mail.menu.PackageMenu;
 import net.royling.lsp.mail.menu.PackingMenu;
+import net.royling.lsp.mail.menu.StampAlbumMenu;
 import net.royling.lsp.telegraph.menu.TelegraphMenu;
 
 public final class ModMenus {
@@ -23,6 +24,8 @@ public final class ModMenus {
             MENUS.register("packing", () -> IMenuTypeExtension.create((id, inventory, data) -> new PackingMenu(id, inventory)));
     public static final DeferredHolder<MenuType<?>, MenuType<PackageMenu>> PACKAGE =
             MENUS.register("package", () -> IMenuTypeExtension.create((id, inventory, data) -> new PackageMenu(id, inventory)));
+    public static final DeferredHolder<MenuType<?>, MenuType<StampAlbumMenu>> STAMP_ALBUM =
+            MENUS.register("stamp_album", () -> IMenuTypeExtension.create((id, inventory, data) -> new StampAlbumMenu(id, inventory)));
     public static final DeferredHolder<MenuType<?>, MenuType<TelegraphMenu>> TELEGRAPH =
             MENUS.register("telegraph_machine", () -> IMenuTypeExtension.create((id, inventory, data) -> new TelegraphMenu(id, inventory)));
 

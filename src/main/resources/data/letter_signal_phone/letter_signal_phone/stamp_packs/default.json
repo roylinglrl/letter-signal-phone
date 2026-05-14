@@ -51,11 +51,27 @@
       "weight": 1
     },
     {
+      "id": "letter_signal_phone:foxinberry_stamp",
+      "weight": 1
+    },
+    {
       "id": "letter_signal_phone:grass_block_stamp",
       "weight": 1
     },
     {
+      "id": "letter_signal_phone:mario_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:owl_stamp",
+      "weight": 1
+    },
+    {
       "id": "letter_signal_phone:pig_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:pikachu_stamp",
       "weight": 1
     },
     {
@@ -64,6 +80,18 @@
     },
     {
       "id": "letter_signal_phone:skeleton_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:sleepfox_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:terraria_stamp",
+      "weight": 1
+    },
+    {
+      "id": "letter_signal_phone:winefox_stamp",
       "weight": 1
     },
     {

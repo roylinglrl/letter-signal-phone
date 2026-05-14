@@ -43,6 +43,7 @@ public final class ModCreativeTabs {
                 for (var pack : StampPackManager.INSTANCE.packs()) {
                     output.accept(StampPackData.stackFor(pack));
                 }
+                output.accept(ModItems.STAMP_ALBUM.get());
                 output.accept(ModItems.PACKING_BOX.get());
                 output.accept(ModItems.PACKAGE.get());
             })

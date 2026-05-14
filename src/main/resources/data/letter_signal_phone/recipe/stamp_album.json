@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PLP",
+    "PPP"
+  ],
+  "key": {
+    "P": "minecraft:paper",
+    "L": "minecraft:leather"
+  },
+  "result": {
+    "id": "letter_signal_phone:stamp_album"
+  }
+}

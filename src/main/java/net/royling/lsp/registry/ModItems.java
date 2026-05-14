@@ -5,6 +5,7 @@ import net.royling.lsp.mail.item.LetterItem;
 import net.royling.lsp.mail.item.MessageInBottleItem;
 import net.royling.lsp.mail.item.PackageItem;
 import net.royling.lsp.mail.item.PackingBoxItem;
+import net.royling.lsp.mail.item.StampAlbumItem;
 import net.royling.lsp.mail.item.StampItem;
 import net.royling.lsp.mail.item.StampPackItem;
 import net.royling.lsp.mail.item.ThrowableMessageInBottleItem;
@@ -57,6 +58,8 @@ public final class ModItems {
             ITEMS.registerItem("stamp", StampItem::new, properties -> properties.stacksTo(64));
     public static final Supplier<StampPackItem> STAMP_PACK =
             ITEMS.registerItem("stamp_pack", StampPackItem::new, properties -> properties.stacksTo(16));
+    public static final Supplier<StampAlbumItem> STAMP_ALBUM =
+            ITEMS.registerItem("stamp_album", StampAlbumItem::new, properties -> properties.stacksTo(1));
     public static final Supplier<PackingBoxItem> PACKING_BOX =
             ITEMS.registerItem("packing_box", PackingBoxItem::new, properties -> properties.stacksTo(16));
     public static final Supplier<PackageItem> PACKAGE =

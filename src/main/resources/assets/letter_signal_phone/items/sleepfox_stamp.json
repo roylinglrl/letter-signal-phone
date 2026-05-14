@@ -3,7 +3,7 @@
                   "type":  "letter_signal_phone:stamp_foil",
                   "base":  {
                                "type":  "minecraft:model",
-                               "model":  "letter_signal_phone:item/bee_stamp"
+                               "model":  "letter_signal_phone:item/sleepfox_stamp"
                            },
                   "rare":  {
                                "type":  "minecraft:model",
